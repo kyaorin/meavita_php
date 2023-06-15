@@ -1,0 +1,125 @@
+/*初期設定
+---------------------*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Yu Gothic Medium",
+        "游ゴシック Medium",
+        "YuGothic",
+        "游ゴシック体",
+        "ヒラギノ角ゴ Pro W3",
+        "メイリオ",
+        sans-serif;
+}
+
+/*header コンテンツ部分のCSS
+---------------------*/
+
+h2 {
+    text-align: center;
+    margin: 40px 0 30px;
+}
+
+.user_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0 0 30px;
+}
+
+/*main コンテンツ部分のCSS
+---------------------*/
+
+.button_row_1 {
+    display: flex;
+    justify-content: center;
+}
+
+.button_row_1 img {
+    width: 320px;
+    height: 320px;
+}
+
+.button_row_2 {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 10px;
+}
+
+.button_row_2 img {
+    width: 320px;
+    height: 320px;
+}
+
+
+/*---------------------*/
+/*１週間の記録部分CSS
+---------------------*/
+
+.memo_wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 930px;
+    height: 420px;
+    margin: auto
+}
+
+.calender,
+input {
+    height: 27px;
+    font-size: 16px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#text_area {
+    height: 200px;
+    font-size: 16px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.record {
+    color: azure;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #52b4b9;
+    border-style: solid;
+    border-color: #52b4b9;
+    border-width: 1px;
+}
+
+.output {
+    width: 930px;
+    margin: auto;
+    margin-bottom: 100px;
+    padding: 0;
+}
+
+.output li {
+    width: 930px;
+    background: #f1efec;
+    list-style-type: none;
+}
+
+.dl {
+    display: block;
+    margin: auto;
+    margin-bottom: 100px;
+    height: 40px;
+    font-size: 16px;
+}
+
+/*footer
+---------------------*/
+
+.footer {
+    background-color: black;
+    padding: 30px 0;
+    color: azure;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+}

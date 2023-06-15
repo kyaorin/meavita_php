@@ -1,0 +1,396 @@
+/*初期設定
+---------------------*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Yu Gothic Medium",
+        "游ゴシック Medium",
+        "YuGothic",
+        "游ゴシック体",
+        "ヒラギノ角ゴ Pro W3",
+        "メイリオ",
+        sans-serif;
+}
+
+/*ログインページ
+---------------------*/
+
+.header__wrapper {
+    text-align: center;
+}
+
+.logo__img {
+    width: 140px;
+    padding: 40px 0 20px;
+}
+
+h1 {
+    font-size: 42px;
+    margin: 0;
+}
+
+.header__text {
+    font-size: 32px;
+    margin: 0 0 60px;
+}
+
+.times_text {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    gap: 100px;
+    padding: 0 0 50px;
+}
+
+.past {
+    background-color: #e9f0f1;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    margin: 0;
+}
+
+.present {
+    background-color: #cee4e2;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    margin: 0;
+}
+
+.future {
+    background-color: #B5DCD8;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    margin: 0;
+}
+
+.today_words {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    letter-spacing: 4px;
+    margin: 0 0 50px;
+}
+
+.new_register {
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 250px;
+    padding: 11px 0;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1.5px;
+    background-color: black;
+}
+
+.login {
+    display: block;
+    margin: auto;
+    width: 250px;
+    padding: 11px 0;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1.5px;
+    background-color: white;
+}
+
+@keyframes bob {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.new_register.bob {
+    animation: bob 0.5s;
+    animation-iteration-count: 3;
+    animation-delay: 1s;
+}
+
+.login.bob {
+    animation: bob 0.5s;
+    animation-iteration-count: 3;
+    animation-delay: 1s;
+}
+
+
+/*登録ページ
+---------------------*/
+.qa_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.register_title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin: 20px 0 0;
+
+}
+
+.q_text {
+    margin: 28px 0 3px;
+}
+
+.value_text {
+    text-align: center;
+    margin: 28px 0 3px;
+}
+
+.textarea {
+    width: 377px;
+    font-size: 16px;
+    padding: 6.4px 0;
+}
+
+/*セレクトボックスCSS参照
+---------------------*/
+.question {
+    position: relative;
+}
+
+.question::before,
+.question::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+}
+
+.question::before {
+    right: 0;
+    display: inline-block;
+    width: 2.8em;
+    height: 2.8em;
+    border-radius: 0 3px 3px 0;
+    background-color: #52b4b9;
+    content: '';
+}
+
+.question::after {
+    position: absolute;
+    top: 50%;
+    right: 1.4em;
+    transform: translate(50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+    content: '';
+}
+
+.question select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 379px;
+    height: 2.8em;
+    padding: .4em 3.6em .4em .8em;
+    border: 1px solid grey;
+    border-radius: 4px;
+    color: #333333;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.question select:focus {
+    outline: 1px solid #00fdff;
+}
+
+.value_wrapper {
+    margin: auto;
+    padding: 40px;
+}
+
+
+/*チェックボックスCSS参照
+---------------------*/
+
+.card {
+    display: block;
+    width: 240px;
+    /* or any size you want */
+    border: 1px solid #52b4b9;
+    border-radius: 3px;
+    background-color: #cee4e2;
+    cursor: pointer;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card input {
+    display: none;
+}
+
+.card .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .content h3 {
+    padding: 10px 0 0;
+    margin-bottom: 10px;
+}
+
+.card .content p {
+    font-size: 14px;
+}
+
+.card input:checked+.content {
+    background-color: #52b4b9;
+    color: #fff;
+}
+
+
+.value_checkbox {
+    border: none;
+}
+
+.value_checkbox .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .4em;
+}
+
+.value_checkbox label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0 .5em;
+    position: relative;
+    margin: 0 .4em;
+    padding: .5em .7em;
+    border: 1px solid #52b4b9;
+    border-radius: 3px;
+    background-color: #cee4e2;
+    cursor: pointer;
+}
+
+.value_checkbox label:has(:checked) {
+    background-color: #52b4b9;
+    color: #fff;
+}
+
+.value_checkbox label::before {
+    width: 14px;
+    height: 14px;
+    border-radius: 1px;
+    background-color: #fff;
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    /* adjust as needed */
+    left: 15px;
+    /* adjust as needed */
+}
+
+.value_checkbox input:checked~.checkbox::after {
+    position: absolute;
+    top: 12px;
+    /* adjust as needed */
+    left: 17px;
+    /* adjust as needed */
+    transform: rotate(45deg);
+    width: 8px;
+    height: 4px;
+    border: solid #00fdff;
+    border-width: 0 2px 2px 0;
+    content: '';
+}
+
+
+.value_checkbox input:checked~.content {
+    background-color: #52b4b9;
+    color: #fff;
+}
+
+/*
+---------------------*/
+
+.send {
+    display: block;
+    width: 140px;
+    padding: 11px 0;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: black;
+    margin: 40px 0 60px;
+}
+
+
+/*会員ページ
+---------------------*/
+.logout {
+    display: block;
+    width: 100px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1.5px;
+    background-color: white;
+}
+
+/*会員ページ
+---------------------*/
+.user_info_1{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.user_info_2{
+width: 50%;
+margin: auto;
+}
+
+.user_icon{
+    width: 60px;
+    height: 60px;
+    margin: 40px 0 0;
+}
+
+
+.return_btn {
+    display: block;
+    width: 100px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1.5px;
+    background-color: white;
+    margin: auto;
+    margin-top: 60px;
+}

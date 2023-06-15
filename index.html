@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>会員ログインページ</title>
+</head>
+
+
+<body>
+    <header class="header__wrapper">
+        <img class="logo__img" src="img/meavita_logo.jpg" alt="ミアビータロゴ画像">
+        <h1>40代から人生を変える</h1>
+        <p class="header__text">自分らしいキャリアを創る</p>
+        <ul class="times_text">
+            <li class="past">過去</li>
+            <li class="present">現在</li>
+            <li class="future">未来</li>
+        </ul>
+        <p class="today_words">Connecting the dots</p>
+
+        <button class="new_register" id="new_register">新規登録</button>
+        <button class="login" id="login">ログイン</button>
+
+    </header>
+
+
+
+    <script type="module">
+
+        // 必要なFirebaseライブラリを読み込み
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged }
+            from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+
+        // Firebase configuration KEYを取得して設定
+        
+
+
+
+
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        //GoogleAuth認証用
+        const provider = new GoogleAuthProvider();
+        provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+        const auth = getAuth();
+
+
+        //ログインボタンのbob動き//
+        // $(document).ready(function () {
+        //     $("#new_register").addClass("bob");
+        //     $("#login").addClass("bob");
+        // });
+
+        //新規登録処理//
+        $("#new_register").on("click", function () {
+            //Google認証完了後の処理
+            signInWithPopup(auth, provider).then((result) => {
+                //新規登録のボタンクリック後のページ遷移先（次のページ）
+                location.href = "register.php";
+            }).catch((error) => {
+                //エラー処理
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                //使用されているユーザーアカウントのメール
+                const email = error.email;
+                //使用された認証タイプ
+                const credential = GoogleAuthProvider.credentialFromError(error);
+            });
+        });
+
+        //ログイン処理//
+        $("#login").on("click", function () {
+            //Google認証完了後の処理
+            signInWithPopup(auth, provider).then((result) => {
+                //ログイン後のページ遷移先（次のページ）
+                location.href = "user_page.php";
+            }).catch((error) => {
+                //エラー処理
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                //使用されているユーザーアカウントのメール
+                const email = error.email;
+                //使用された認証タイプ
+                const credential = GoogleAuthProvider.credentialFromError(error);
+            });
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
