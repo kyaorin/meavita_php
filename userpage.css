@@ -57,60 +57,48 @@ h2 {
 /*１週間の記録部分CSS
 ---------------------*/
 
-.memo_wrapper {
+.record_txt{
+    text-align: center;
+   margin: 0 0 30px;
+}
+
+form {
+    text-align: left;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    width: 930px;
-    height: 420px;
-    margin: auto
+    align-items: center;
 }
 
-.calender,
-input {
-    height: 27px;
+input[name="memo"] {
+    width: 920px;
+    height: 300px;
     font-size: 16px;
-    border-style: solid;
-    border-width: 1px;
 }
 
-#text_area {
-    height: 200px;
+input[name="input_date"] {
+    width: 200px;
     font-size: 16px;
-    border-style: solid;
-    border-width: 1px;
 }
+
 
 .record {
-    color: azure;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #52b4b9;
-    border-style: solid;
-    border-color: #52b4b9;
-    border-width: 1px;
-}
-
-.output {
-    width: 930px;
+    display: block;
     margin: auto;
-    margin-bottom: 100px;
-    padding: 0;
-}
-
-.output li {
-    width: 930px;
-    background: #f1efec;
-    list-style-type: none;
+    margin-bottom: 60px;
+    height: 40px;
+    font-size: 18px;
+    width: 920px;
+    background-color: #52b4b9;
 }
 
 .dl {
     display: block;
     margin: auto;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
     height: 40px;
     font-size: 16px;
 }
+
 
 /*footer
 ---------------------*/

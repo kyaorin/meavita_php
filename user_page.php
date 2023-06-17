@@ -51,7 +51,7 @@ $_SESSION["service"] = $service;
 <body>
 
     <header>
-        <h2><?= $name ?>さんのページ</h2>
+        <h2><?= $name ?>さんのキャリアノート</h2>
         <div class="user_wrapper" id="user_wrapper">
             <button class="logout" id="logout">ログアウト</button>
             <a href="user_info.php"><button class="userinfo" id="userinfo">会員情報</button></a>
@@ -69,18 +69,22 @@ $_SESSION["service"] = $service;
             <img id="word" src="img/word_top.png" alt="心を動かす名言集">
         </div>
 
-        <div class="memo_wrapper">
-            <h3>《今日の記録》</h3>
-            <input class="calender" type="date" id="calender">
-            <textarea id="text_area" placeholder="ex. 今日の問いに対する自分なりの答え、今抱えている悩み、モヤモヤ、感じていることなどを思いつくまま、自由に記入してみよう！"></textarea>
-            <button class="record" id="record">記録</button>
-        </div>
-
-        <!-- データ出力場所 -->
-        <ul class="output" id="output"></ul>
+        <h2 class="record_title">《今日の記録》</h2>
+        <p class="record_txt">今日の問いに対する答え、今の気持ち、モヤモヤ、悩みなどを毎日記録しよう！</p>
+        <form action="record_txt_create.php" method="POST">
+            <div>
+                日付: <input type="date" name="input_date">
+            </div>
+            <div>
+                <input type="textarea" name="memo">
+            </div>
+            <div>
+                <button class="record">保存</button>
+            </div>
+        </form>
 
         <!-- 振り返りシートダウンロード -->
-        <button class="dl" id="dl">１週間の振返りシートをダウンロード</button>
+        <a href="record_txt_read.php"><button class="dl" id="dl">記録の一覧画面</button></a>
 
     </main>
 
@@ -121,9 +125,6 @@ $_SESSION["service"] = $service;
 
 
         // Firebase configuration KEYを取得して設定
-
-
-
 
 
         // Initialize Firebase
@@ -186,56 +187,6 @@ $_SESSION["service"] = $service;
             // エラーが発生した場合はindex.htmlにページ遷移する
             window.location.href = "index.html";
         }
-
-
-        ////////////////////////////////////////////////
-        ///// 今日の記録をデータ送信する処理/////
-        ////////////////////////////////////////////////
-
-        $("#record").on("click", function() {
-            const postData = {
-                calender: $("#calender").val(),
-                textarea: $("#text_area").val(),
-                time: serverTimestamp(),
-            };
-            if (user) {
-                addDoc(collection(db, "meavita-chat", user.uid, "messages"), postData);
-                $("#calender").val("");
-                $("#text_area").val("");
-            }
-        });
-
-
-        ////////////////////////////////////////////////
-        ///// 今日の記録データ取得処理/////
-        ////////////////////////////////////////////////
-
-
-        // ユーザーの認証状態が変わったときに実行
-        onAuthStateChanged(auth, (currentUser) => {
-            if (currentUser) {
-                const q = query(collection(db, "meavita-chat", currentUser.uid, "messages"), orderBy("time", "desc"));
-                onSnapshot(q, (snapshot) => {
-                    $("#output").empty(); // Clear the list before appending new items
-                    snapshot.forEach((doc) => {
-                        const data = doc.data();
-                        const date = new Date(data.time.seconds * 1000); // Convert Firebase timestamp to JavaScript Date
-                        $("#output").append(
-                            `<li> 
-          <p>Date: ${data.calender}</p>
-          <p>Text: ${data.textarea}</p>
-        </li>`
-                        );
-                    });
-                });
-            }
-        });
-
-
-        ////////////////////////////////////////////////
-        ///// 会員データ取得処理/////
-        ////////////////////////////////////////////////
-
 
 
         ////////////////////////////////////////////////
